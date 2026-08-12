@@ -25,7 +25,11 @@ $(BUILD_DIR)/firmware.hex: $(BUILD_DIR)/firmware.elf
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
+flash: $(BUILD_DIR)/firmware.hex
+	pyocd flash -t nrf52 $(BUILD_DIR)/firmware.hex
+
 clean:
 	rm -rf $(BUILD_DIR)
+	pyocd erase -t nrf52 --chip
 
-.PHONY: all clean
+.PHONY: all clean flash
