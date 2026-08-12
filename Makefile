@@ -6,7 +6,7 @@ BUILD_DIR = build
 
 CFLAGS  = -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 \
           -O0 -g -nostdlib -nostartfiles -ffreestanding
-LDFLAGS = -T nrf52833.ld -nostdlib -nostartfiles
+LDFLAGS = -T src/nrf52833.ld -nostdlib -nostartfiles
 
 SRCS = $(wildcard $(SRC_DIR)/*.c)
 OBJS = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRCS))
